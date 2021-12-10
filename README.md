@@ -1,2 +1,2 @@
 # My-Clock
-Very simple clock app 
+Alarm, Clock, Stopwatch and Timer app
