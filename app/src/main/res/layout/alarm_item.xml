@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zerobranch.layout.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:draggedItem="@id/alarm_item"
+    app:autoMovingSensitivity="1000"
+    app:leftDragViewPadding="@dimen/_50sdp"
+    app:rightDragViewPadding="@dimen/_50sdp"
+    app:leftItem="@id/delete_view"
+    app:swipeDirection="right">
+
+    <ImageButton
+        android:id="@+id/delete_view"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginEnd="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_24sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_round_delete_24" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/alarm_item"
+        style="@style/DayNightSwipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/load_time_view"
+            style="@style/DayNightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textSize="@dimen/_26sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="05:26" />
+
+        <TextView
+            android:id="@+id/label_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/load_time_view"
+            tools:text="Alarm in 23 hours 51 minutes" />
+
+        <com.rm.rmswitch.RMSwitch
+            android:id="@+id/repeat_alarm"
+            style="@style/DayNightSwitch"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            app:enabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.zerobranch.layout.SwipeLayout>

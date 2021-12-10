@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.fragments.TimersFragment">
+
+    <LinearLayout
+        android:id="@+id/hms_picker"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/alarm_time_picker_hour"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:np_divider="@android:color/transparent"
+            app:np_fadingEdgeEnabled="true"
+            app:np_formatter="%02d"
+            app:np_max="23"
+            app:np_min="0"
+            app:np_selectedTextSize="50sp"
+            app:np_textSize="44sp"
+            app:np_wheelItemCount="5" />
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/alarm_time_picker_minute"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:np_divider="@android:color/transparent"
+            app:np_fadingEdgeEnabled="true"
+            app:np_formatter="%02d"
+            app:np_max="59"
+            app:np_min="0"
+            app:np_selectedTextSize="50sp"
+            app:np_textSize="44sp"
+            app:np_wheelItemCount="5" />
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/alarm_time_picker_second"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:np_divider="@android:color/transparent"
+            app:np_fadingEdgeEnabled="true"
+            app:np_formatter="%02d"
+            app:np_max="59"
+            app:np_min="0"
+            app:np_selectedTextSize="50sp"
+            app:np_textSize="44sp"
+            app:np_wheelItemCount="5" />
+
+    </LinearLayout>
+
+    <com.mindorks.RadialProgressBar
+        android:id="@+id/progress_view"
+        style="@style/DayNightRadialProgressbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:visibility="gone"
+        app:circleThickness="0.5"
+        app:hasElevation="true"
+        app:hasEmptyProgressBar="true"
+        app:hasOneProgressView="true"
+        app:isAnimationOn="true"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:outerMaxProgress="100"
+        app:outerProgressColor="@color/colorSecondary"
+        app:useRoundedCorner="true" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/time_steps"
+        style="@style/DayNightTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="56sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_view"
+        app:layout_constraintEnd_toEndOf="@+id/progress_view"
+        app:layout_constraintStart_toStartOf="@+id/progress_view"
+        app:layout_constraintTop_toTopOf="@+id/progress_view"
+        tools:text="00:00:00" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        android:src="@drawable/ic_round_play_arrow_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@android:color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/stop_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        android:src="@drawable/ic_round_stop_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@android:color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pause_and_play_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        android:src="@drawable/ic_round_pause_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@android:color/white" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.fragments.ClocksFragment">
+
+    <TextClock
+        android:id="@+id/real_time"
+        style="@style/DayNightTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:textSize="@dimen/_40sdp"
+        android:format24Hour="HH:mm.ss"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/real_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/real_time"
+        app:layout_constraintTop_toBottomOf="@id/real_time"
+        tools:text="Current: 24/11/2021" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/clocks_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/clock_item"
+        android:layout_marginTop="@dimen/_32sdp"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/real_date" />
+
+    <View
+        android:id="@+id/view"
+        style="@style/DayNightTextView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginBottom="-2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/clocks_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        app:tint="@android:color/white"
+        android:src="@drawable/ic_round_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

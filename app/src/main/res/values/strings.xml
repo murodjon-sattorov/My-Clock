@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Clock</string>
+    <string name="start">Start</string>
+    <string name="zero">0</string>
+    <string name="stop">Stop</string>
+    <string name="reset">Reset</string>
+    <string name="zero_zero">00</string>
+</resources>
