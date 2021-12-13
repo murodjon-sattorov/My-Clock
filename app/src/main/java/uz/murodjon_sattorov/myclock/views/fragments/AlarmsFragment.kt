@@ -59,7 +59,7 @@ class AlarmsFragment : Fragment() {
         dialog.setCancelable(false)
         dialog.setOnCheckVibrateAndLabel(object : GetCheckVibrateAndLabel {
             override fun getVibrateAndLabel(
-                requestCode:Int,
+                requestCode: Int,
                 hour: String,
                 minutes: String,
                 vibrate: Boolean,
@@ -107,7 +107,11 @@ class AlarmsFragment : Fragment() {
     private fun loadAlarms() {
         alarmViewModel = ViewModelProvider(this)[AlarmViewModel::class.java]
         alarmViewModel.readAllAlarm.observe(viewLifecycleOwner, {
-            adapter.addData(it)
+            if (it==null){
+                
+            }else{
+                adapter.addData(it)
+            }
         })
     }
 
@@ -181,7 +185,18 @@ class AlarmsFragment : Fragment() {
                 loadAlarms()
             }
 
+            override fun onDeleteSwipe(model: AlarmModel) {
+                deleteAlarm(model)
+            }
+
         })
+    }
+
+    private fun deleteAlarm(model: AlarmModel) {
+        alarmViewModel = ViewModelProvider(this@AlarmsFragment)[AlarmViewModel::class.java]
+        alarmBroadcast?.cancelAlarm(requireContext(), model.id)
+        alarmViewModel.deleteAlarm(model)
+        loadAlarms()
     }
 
 

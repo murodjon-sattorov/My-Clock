@@ -49,9 +49,21 @@ class AlarmAdapter : RecyclerView.Adapter<AlarmAdapter.ViewHolder>() {
                 setOnClickListener!!.onRepeatClick(model, it as RMSwitch)
             }
 
-            binding.deleteView.setOnClickListener {
-                Toast.makeText(binding.deleteView.context, "Deleted item" + model.id, Toast.LENGTH_SHORT).show()
-            }
+            binding.swipeLayout.setOnActionsListener(object : SwipeLayout.SwipeActionsListener {
+                override fun onOpen(direction: Int, isContinuous: Boolean) {
+                    setOnClickListener!!.onDeleteSwipe(model)
+                    Toast.makeText(
+                        binding.swipeLayout.context,
+                        "Deleted item" + model.id,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                override fun onClose() {
+
+                }
+
+            })
 
         }
     }
@@ -76,6 +88,8 @@ class AlarmAdapter : RecyclerView.Adapter<AlarmAdapter.ViewHolder>() {
         fun onUpdateClick(model: AlarmModel)
 
         fun onRepeatClick(model: AlarmModel, view: RMSwitch)
+
+        fun onDeleteSwipe(model: AlarmModel)
     }
 
 }

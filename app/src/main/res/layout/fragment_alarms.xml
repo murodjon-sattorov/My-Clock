@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:overScrollMode="never"
-        tools:listitem="@layout/alarm_item"
         app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/alarm_item" />
 
     <View
         style="@style/DayNightTextView"
@@ -32,12 +32,20 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_40sdp"
         android:clickable="true"
-        android:elevation="@dimen/_12sdp"
         android:contentDescription="@string/app_name"
+        android:elevation="@dimen/_12sdp"
         android:focusable="true"
-        app:tint="@android:color/white"
         android:src="@drawable/ic_round_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@android:color/white" />
+
+    <include
+        layout="@layout/no_alarms"
+        android:visibility="gone"
+        android:id="@+id/no_data"
+        app:layout_constraintBottom_toBottomOf="@+id/alarm_list"
+        app:layout_constraintTop_toTopOf="@+id/alarm_list" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
